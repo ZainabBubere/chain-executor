@@ -215,10 +215,20 @@ public abstract class StageExecutionManager<T extends Stage, U extends Execution
     }
   }
 
+  /**
+   * Hook to resolve the latest chain identifier from the given context.
+   * By default, returns the provided value as is. Clients can override this to supply
+   * the latest value based on their use-case.
+   */
   protected C resolveChainIdentifier(U context, C chainIdentifier) {
     return chainIdentifier;
   }
 
+  /**
+   * Hook to resolve the latest auxiliary key from the given context.
+   * By default, returns the provided value as is. Clients can override this to supply
+   * the latest value based on their use-case.
+   */
   protected K resolveAuxiliaryKey(U context, K auxiliaryKey) {
     return auxiliaryKey;
   }
