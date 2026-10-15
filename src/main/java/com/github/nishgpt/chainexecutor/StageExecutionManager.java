@@ -303,7 +303,7 @@ public abstract class StageExecutionManager<T extends Stage, U extends Execution
     return context;
   }
 
-  private StageExecutorKey<T, K> buildStageExecutorKey(T stage, K auxiliaryKey) {
+  private static <T extends Stage, K extends ExecutorAuxiliaryKey> StageExecutorKey<T, K> buildStageExecutorKey(T stage, K auxiliaryKey)  {
     return StageExecutorKey.<T, K>builder()
         .stage(stage)
         .auxiliaryKey(auxiliaryKey)
